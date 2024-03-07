@@ -74,7 +74,7 @@ git config --global user.name "test"
 git config --global user.email "test@qq.com"
 ```
 
-- 生成 ssl 密钥对
+- 生成 ssh 密钥对
 
 ```sh
 ssh-keygen -t rsa -C "这里换上你的邮箱"
