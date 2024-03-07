@@ -1,7 +1,7 @@
 name: DeployBlog
 on:
   push: # 监听调用时机为push事件
-    branches: ['main']
+    branches: ["main"]
 jobs:
   build:
     runs-on: ubuntu-latest # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
@@ -26,7 +26,7 @@ jobs:
       - name: 项目打包构建
         env:
           NODE_OPTIONS: --max_old_space_size=4096
-        run: pnpm build:docs
+        run: pnpm build
 
       - name: 部署产物到服务器
         uses: appleboy/scp-action@master
@@ -34,8 +34,8 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: 'docs/.vitepress/dist/'
-          target: '/${{secrets.SSH_USERNAME}}/Projects/.blog_temp/'
+          source: "docs/.vitepress/dist/"
+          target: "/${{secrets.SSH_USERNAME}}/Projects/.blog_temp/"
           rm: true
           strip_components: 3
 
