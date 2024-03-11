@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "preview": "vitepress preview docs"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
