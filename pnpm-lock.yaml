@@ -20,8 +20,8 @@ dependencies:
 
 devDependencies:
   oh-my-live2d:
-    specifier: ^0.9.0
-    version: 0.9.0
+    specifier: ^0.12.0
+    version: 0.12.0
   sass:
     specifier: ^1.64.1
     version: 1.71.1
@@ -1914,8 +1914,8 @@ packages:
     resolution: {integrity: sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==}
     dev: false
 
-  /oh-my-live2d@0.9.0:
-    resolution: {integrity: sha512-FGn88mWKKaVy1i6DT/D/sVjuMTgRBhWLp8TPEo/ECg07rhDevqKpwdQykS9jONXBi+Zh2acc7V4nwvr7Dwtr2A==}
+  /oh-my-live2d@0.12.0:
+    resolution: {integrity: sha512-TnaoFX6S0DJbwSMjOaB4/zODfLVbpiBQF7enQ9GqJFxqy1M0R38tCLNH8JVlSkXjxlLFLFQExgXbCHUkxGaZTA==}
     dev: true
 
   /picocolors@1.0.0:
