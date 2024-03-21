@@ -20,7 +20,7 @@
     "doc": "docs"
   },
   "devDependencies": {
-    "oh-my-live2d": "^0.12.0",
+    "oh-my-live2d": "^0.13.0",
     "sass": "^1.64.1",
     "typescript": "^5.1.6",
     "vitepress": "1.0.0-rc.40"
