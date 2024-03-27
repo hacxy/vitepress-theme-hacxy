@@ -1,5 +1,5 @@
 // 主题独有配置
-import { getThemeConfig } from "@sugarat/theme/node";
+import { getThemeConfig } from "vitepress-theme-whisper";
 
 // 开启RSS支持（RSS配置）
 // import type { Theme } from '@sugarat/theme'
