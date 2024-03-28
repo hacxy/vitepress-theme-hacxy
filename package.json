@@ -5,6 +5,7 @@
   "author": "Hacxy",
   "license": "MIT",
   "scripts": {
+    "dev": "pnpm -F vitepress-theme-whisper run dev",
     "blog:dev": "pnpm -F blog run docs:dev"
   }
 }

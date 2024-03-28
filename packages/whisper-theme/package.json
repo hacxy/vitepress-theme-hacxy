@@ -1,19 +1,30 @@
 {
   "name": "vitepress-theme-whisper",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "files": [
-    "dist"
+    "src"
   ],
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "scripts": {},
-  "devDependencies": {
-    "typescript": "^5.3.3",
-    "vitepress": "^1.0.1"
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "unbuild"
   },
-  "dependencies": {
-    "vue": "^3.4.21"
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "exec": "echo",
+    "events": {
+      "restart": "pnpm run build"
+    },
+    "ext": ".vue,.ts"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
+    "vitepress": "^1.0.1"
   }
 }

@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 const { Layout } = DefaultTheme;
+const data = useData();
+console.log(data);
 </script>
 
 <template>
-  <Layout>
-    <!-- <template #aside-outline-before>  </template> -->
-  </Layout>
+  <Layout> asd </Layout>
 </template>
 
 <style scoped></style>

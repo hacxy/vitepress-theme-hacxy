@@ -2,12 +2,9 @@ import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import Layout from "./components/Layout.vue";
 
-const whisperTheme: Theme = {
+const WhisperTheme: Theme = {
   extends: DefaultTheme,
   Layout,
 };
-
-export const getThemeConfig = (): any => {
-  return {};
-};
-export default whisperTheme;
+export default WhisperTheme;
+// export const foo = () => {};
