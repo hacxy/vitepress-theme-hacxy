@@ -1,6 +1,6 @@
 import { defineBuildConfig } from "unbuild";
 import path from "path";
-
+console.log(path.resolve(__dirname, "./src/index"));
 export default defineBuildConfig({
   entries: [
     path.resolve(__dirname, "./src/index"),
