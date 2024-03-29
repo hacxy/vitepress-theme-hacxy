@@ -5,11 +5,12 @@
   "files": [
     "dist"
   ],
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "nodemon",
-    "build": "rimraf ./dist && npx unbuild"
+    "build": "rimraf ./dist && unbuild"
   },
   "keywords": [
     "vitepress",
