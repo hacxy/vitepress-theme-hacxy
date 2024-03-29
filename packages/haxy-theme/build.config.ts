@@ -2,7 +2,7 @@ import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
   entries: [
-    "src/index.ts",
+    "./src/index.ts",
     {
       builder: "mkdist",
       input: "./src/components/",
