@@ -3,7 +3,7 @@ export default defineBuildConfig({
   entries: [
     {
       builder: "rollup",
-      input: "./src/index",
+      input: "../src/index",
     },
     {
       builder: "mkdist",
