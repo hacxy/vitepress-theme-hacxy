@@ -1,19 +1,40 @@
 <script setup lang="ts">
-import { HaxyTheme } from "../types";
+// import { HaxyTheme } from "../types";
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { onMounted } from "vue";
-const { Layout } = DefaultTheme;
-const data = useData<HaxyTheme>();
+import Oml2d from "./Oml2d.vue";
+import Footer from "./Footer.vue";
+import { useLayout } from "../hooks";
+import { nextTick, provide } from "vue";
+const { isDark } = useData();
+const { layout } = useLayout();
 
-onMounted(async () => {
-  const { loadOml2d } = await import("oh-my-live2d");
-  loadOml2d(data.theme.value.oml2d || {});
+const enableTransitions = () =>
+  "startViewTransition" in document &&
+  window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+
+provide("toggle-appearance", async () => {
+  if (!enableTransitions()) {
+    isDark.value = !isDark.value;
+    return;
+  }
+
+  await (document as any).startViewTransition(async () => {
+    isDark.value = !isDark.value;
+    await nextTick();
+  }).ready;
 });
 </script>
 
 <template>
-  <Layout> </Layout>
+  <Oml2d />
+  <DefaultTheme.Layout>
+    <!-- footer -->
+    <template #layout-bottom>
+      <Footer v-if="layout === 'home'" />
+      <slot name="layout-bottom" />
+    </template>
+  </DefaultTheme.Layout>
 </template>
 
 <style scoped></style>

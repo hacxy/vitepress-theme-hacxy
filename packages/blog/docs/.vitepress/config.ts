@@ -1,8 +1,7 @@
 import { defineConfigWithTheme } from "vitepress";
 import { HaxyTheme } from "vitepress-theme-haxy";
-// import { getThemeConfig } from "vitepress-theme-whisper/dist/node";
-// https://vitepress.dev/reference/site-config
 
+// https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<HaxyTheme>({
   title: "Hacxy Blog",
   description: "A hacxy blog",
@@ -11,7 +10,7 @@ export default defineConfigWithTheme<HaxyTheme>({
     logo: "logo.png",
     // 展示 2,3 级标题在目录中
     outline: {
-      level: [2, 3],
+      level: [2, 4],
       label: "目录",
     },
     sidebar: {
@@ -38,9 +37,12 @@ export default defineConfigWithTheme<HaxyTheme>({
     ],
 
     footer: {
-      message:
-        'Copyright © 2023-present <a href="https://github.com/hacxy">Hacxy</a>',
-      copyright: '<a href="https://beian.miit.gov.cn">鄂ICP备2021019656号</a>',
+      copyright:
+        'Copyright © 2023-Present <a href="https://github.com/hacxy">Hacxy</a>',
+      recordFiling: {
+        message: "鄂ICP备2021019656号",
+        link: "https://beian.miit.gov.cn",
+      },
     },
 
     oml2d: {

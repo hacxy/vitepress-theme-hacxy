@@ -3,15 +3,12 @@
   "version": "0.0.0",
   "type": "module",
   "files": [
-    "dist"
+    "src"
   ],
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "scripts": {
-    "dev": "nodemon",
-    "build": "rimraf ./dist && unbuild"
-  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {},
   "keywords": [
     "vitepress",
     "vitepress-theme",
@@ -38,6 +35,8 @@
   },
   "dependencies": {
     "oh-my-live2d": "^0.15.2",
+    "sass": "^1.72.0",
+    "scss": "^0.2.4",
     "vue": "^3.4.21"
   }
 }
