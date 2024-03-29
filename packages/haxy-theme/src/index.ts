@@ -6,5 +6,6 @@ const WhisperTheme: Theme = {
   extends: DefaultTheme,
   Layout,
 };
+
+export * from "./types";
 export default WhisperTheme;
-// export const foo = () => {};

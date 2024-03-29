@@ -3,23 +3,27 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Hacxy Blog"
+  tagline: 了解真相才能获得真正的自由
+  image:
+    src: /logo.png
+    alt: hacxy
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 文章速览
+      link: /src/list
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Github
+      link: https://github.com/hacxy
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🥳️
+    title: Active
+    details: Updated weekly.
+  - icon: 😎
+    title: Unrestricted
+    details: The content is comprehensive, covering both technical aspects and real-life experiences.
+  - icon: 🤩
+    title: Open source
+    details: Passionate about open source and technology innovation.
 ---
-

@@ -8,10 +8,10 @@ export default defineBuildConfig({
       input: "./src/components/",
       outDir: "./dist/components",
     },
-    {
-      builder: "rollup",
-      input: "./src/node",
-    },
+    // {
+    //   builder: "rollup",
+    //   input: "./src/node",
+    // },
   ],
 
   clean: false,

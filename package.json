@@ -5,7 +5,14 @@
   "author": "Hacxy",
   "license": "MIT",
   "scripts": {
-    "dev": "pnpm -F vitepress-theme-whisper run dev",
-    "blog:dev": "pnpm -F blog run docs:dev"
+    "build": "pnpm -r run build",
+    "theme:dev": "pnpm -F vitepress-theme-haxy run dev",
+    "theme:build": "pnpm -F vitepress-theme-haxy run build",
+    "blog:dev": "pnpm -F blog run dev",
+    "blog:build": "pnpm -F blog run build",
+    "blog:preview": "pnpm -F blog run preview"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
   }
 }
