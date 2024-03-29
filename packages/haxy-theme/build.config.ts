@@ -1,19 +1,16 @@
 import { defineBuildConfig } from "unbuild";
+import path from "path";
 export default defineBuildConfig({
   entries: [
     {
       builder: "rollup",
-      input: "./src/index",
+      input: path.resolve(__dirname, "./src/index"),
     },
     {
       builder: "mkdist",
       input: "./src/components/",
       outDir: "./dist/components",
     },
-    // {
-    //   builder: "rollup",
-    //   input: "./src/node",
-    // },
   ],
 
   clean: false,
@@ -34,9 +31,5 @@ export default defineBuildConfig({
       target: "es6",
       minify: true,
     },
-  },
-  alias: {
-    // components: "../src/components",
-    // we can always use non-transpiled code since we support node 18+
   },
 });

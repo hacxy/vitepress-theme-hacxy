@@ -30,6 +30,7 @@
     "ext": ".vue,.ts,.json"
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "nodemon": "^3.1.0",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
