@@ -10,7 +10,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "nodemon",
-    "build": "rimraf ./dist && unbuild -c ./build.config.ts"
+    "build": "rimraf ./dist && unbuild"
   },
   "keywords": [
     "vitepress",

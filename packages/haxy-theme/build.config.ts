@@ -20,7 +20,7 @@ export default defineBuildConfig({
   outDir: "dist",
   externals: [
     "vitepress",
-    new RegExp("vitepress/*"),
+    new RegExp("vitepress/theme"),
     new RegExp("components/.*"),
   ],
   rollup: {
