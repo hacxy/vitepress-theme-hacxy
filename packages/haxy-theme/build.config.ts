@@ -1,7 +1,10 @@
 import { defineBuildConfig } from "unbuild";
 export default defineBuildConfig({
   entries: [
-    "src/index.ts",
+    {
+      builder: "rollup",
+      input: "./src/index.ts",
+    },
     {
       builder: "mkdist",
       input: "./src/components/",
