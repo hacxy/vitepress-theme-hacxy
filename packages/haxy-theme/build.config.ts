@@ -1,11 +1,9 @@
 import { defineBuildConfig } from "unbuild";
 import path from "path";
+
 export default defineBuildConfig({
   entries: [
-    {
-      builder: "rollup",
-      input: path.resolve(__dirname, "./src/index"),
-    },
+    path.resolve(__dirname, "./src/index"),
     {
       builder: "mkdist",
       input: "./src/components/",
