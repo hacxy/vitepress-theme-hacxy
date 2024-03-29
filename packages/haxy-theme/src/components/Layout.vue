@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { SpryTheme } from "../types";
+import { HaxyTheme } from "../types";
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { onMounted } from "vue";
 const { Layout } = DefaultTheme;
-const data = useData<SpryTheme>();
+const data = useData<HaxyTheme>();
 
 onMounted(async () => {
   const { loadOml2d } = await import("oh-my-live2d");
