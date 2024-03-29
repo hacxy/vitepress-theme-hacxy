@@ -3,7 +3,7 @@ import path from "path";
 console.log(path.resolve(__dirname, "./src/index"));
 export default defineBuildConfig({
   entries: [
-    path.resolve(__dirname, "./src/index"),
+    path.resolve(__dirname, "./src/index.ts"),
     {
       builder: "mkdist",
       input: "./src/components/",
