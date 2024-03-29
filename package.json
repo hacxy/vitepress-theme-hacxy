@@ -5,7 +5,7 @@
   "author": "Hacxy",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm run theme:build && pnpm run blog:build",
+    "build": "pnpm -r run build",
     "theme:dev": "pnpm -F vitepress-theme-haxy run dev",
     "theme:build": "pnpm -F vitepress-theme-haxy run build",
     "blog:dev": "pnpm -F blog run dev",
