@@ -1,10 +1,10 @@
 import { defineConfigWithTheme } from "vitepress";
 import { HaxyTheme } from "vitepress-theme-haxy";
-
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme<HaxyTheme>({
   title: "Hacxy Blog",
   description: "A hacxy blog",
+  extends: {},
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "logo.png",
