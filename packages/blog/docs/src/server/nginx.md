@@ -122,3 +122,61 @@ location \ {
 		add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
 }
 ```
+
+## 配置反向代理
+
+### 无 ssl 证书的配置：
+
+```
+server {
+  listen       80;  # 目标代理端口
+  server_name  cms-api.tj520.top;  # 目标代理域名
+
+  location / {
+      root   html;
+      index  index.html index.htm;
+      proxy_pass  http://0.0.0.0:1118;   # 服务启动的ip地址和端口
+
+      # 以下配置方便后端服务器拿到真实的请求ip地址
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      #后端服务器可以通过X-Forwarded-For获取用户真实IP
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
+
+```
+
+### 有 ssl 证书的配置
+
+```
+server {
+        listen       443 ssl http2;
+        listen       [::]:443 ssl http2;
+        server_name hitokoto.oml2d.com;
+
+        ssl_certificate /etc/nginx/ssl/oml2d.com/fullchain.cer;
+        ssl_certificate_key /etc/nginx/ssl/oml2d.com/oml2d.com.key;
+        ssl_session_cache shared:SSL:1m;
+        ssl_session_timeout  10m;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+
+        location / {
+	   proxy_pass  http://0.0.0.0:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            #后端服务器可以通过X-Forwarded-For获取用户真实IP
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+}
+
+server {
+        listen       80;
+        listen       [::]:80;
+        root /root/Projects/oml2d-docs;
+        server_name  hitokoto.oml2d.com;
+
+        return 301 https://$host$request_uri;
+}
+```
