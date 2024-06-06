@@ -16,10 +16,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "^1.0.1",
+    "vitepress": "^1.2.3",
     "vitepress-plugin-search": "1.0.4-alpha.22"
   },
   "dependencies": {
-    "vitepress-theme-haxy": "workspace:*"
+    "vitepress-theme-hacxy": "workspace:*"
   }
 }

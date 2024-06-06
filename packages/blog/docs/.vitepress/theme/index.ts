@@ -16,6 +16,6 @@
 //   }
 // } satisfies Theme
 
-import WhisperTheme from "vitepress-theme-haxy";
+import HacxyTheme from "vitepress-theme-hacxy";
 
-export default WhisperTheme;
+export default HacxyTheme;

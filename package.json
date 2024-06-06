@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r run build",
-    "theme:dev": "pnpm -F vitepress-theme-haxy run dev",
-    "theme:build": "pnpm -F vitepress-theme-haxy run build",
+    "theme:dev": "pnpm -F vitepress-theme-hacxy run dev",
+    "theme:build": "pnpm -F vitepress-theme-hacxy run build",
     "blog:dev": "pnpm -F blog run dev",
     "blog:build": "pnpm -F blog run build",
     "blog:preview": "pnpm -F blog run preview"

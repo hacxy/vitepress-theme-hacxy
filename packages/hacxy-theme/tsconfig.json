@@ -16,7 +16,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "types": ["element-plus/global"]
   },
   "include": ["src"]
 }

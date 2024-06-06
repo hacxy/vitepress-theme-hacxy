@@ -1,7 +1,7 @@
 import { defineConfigWithTheme } from "vitepress";
-import { HaxyTheme } from "vitepress-theme-haxy";
+import { HacxyTheme } from "vitepress-theme-hacxy";
 // https://vitepress.dev/reference/site-config
-export default defineConfigWithTheme<HaxyTheme>({
+export default defineConfigWithTheme<HacxyTheme>({
   title: "Hacxy Blog",
   description: "A hacxy blog",
   extends: {},
@@ -43,20 +43,6 @@ export default defineConfigWithTheme<HaxyTheme>({
         message: "鄂ICP备2021019656号",
         link: "https://beian.miit.gov.cn",
       },
-    },
-
-    oml2d: {
-      primaryColor: "pink",
-      models: [
-        {
-          path: "https://model.oml2d.com/HK416-1-normal/model.json",
-          position: [0, 60],
-          scale: 0.075,
-          stageStyle: {
-            height: 400,
-          },
-        },
-      ],
     },
   },
 });

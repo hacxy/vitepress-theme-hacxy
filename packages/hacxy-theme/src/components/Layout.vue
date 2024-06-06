@@ -2,7 +2,6 @@
 // import { HaxyTheme } from "../types";
 import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import Oml2d from "./Oml2d.vue";
 import Footer from "./Footer.vue";
 import { useLayout } from "../hooks";
 import { nextTick, provide } from "vue";
@@ -27,7 +26,6 @@ provide("toggle-appearance", async () => {
 </script>
 
 <template>
-  <Oml2d />
   <DefaultTheme.Layout>
     <!-- footer -->
     <template #layout-bottom>

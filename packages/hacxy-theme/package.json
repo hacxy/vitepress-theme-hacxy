@@ -1,5 +1,5 @@
 {
-  "name": "vitepress-theme-haxy",
+  "name": "vitepress-theme-hacxy",
   "version": "0.0.0",
   "type": "module",
   "files": [
@@ -10,9 +10,8 @@
   "types": "./src/index.ts",
   "scripts": {},
   "keywords": [
-    "vitepress",
     "vitepress-theme",
-    "vitepress-theme-haxy"
+    "vitepress-theme-haxcy"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -20,7 +19,7 @@
     "vitepress": "^1.0.1"
   },
   "dependencies": {
-    "oh-my-live2d": "^0.15.2",
+    "element-plus": "^2.7.4",
     "sass": "^1.72.0",
     "vue": "^3.4.21"
   }
