@@ -1,9 +1,9 @@
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import Layout from "./components/Layout.vue";
-import "./style/index.scss";
 import { ElButton } from "element-plus";
 import "element-plus/dist/index.css";
+import "./style/index.scss";
 
 const HacxyTheme: Theme = {
   extends: DefaultTheme,

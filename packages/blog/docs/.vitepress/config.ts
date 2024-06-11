@@ -4,7 +4,7 @@ import { HacxyTheme } from "vitepress-theme-hacxy";
 export default defineConfigWithTheme<HacxyTheme>({
   title: "Hacxy Blog",
   description: "A hacxy blog",
-  extends: {},
+  // extends: {},
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "logo.png",

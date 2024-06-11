@@ -5,7 +5,7 @@ import DefaultTheme from "vitepress/theme";
 import Footer from "./Footer.vue";
 import { useLayout } from "../hooks";
 import { nextTick, provide } from "vue";
-const { isDark } = useData();
+const { isDark, theme } = useData();
 const { layout } = useLayout();
 
 const enableTransitions = () =>
