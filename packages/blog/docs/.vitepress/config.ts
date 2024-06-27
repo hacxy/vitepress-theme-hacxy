@@ -1,12 +1,12 @@
 import { defineConfigWithTheme } from "vitepress";
+import themePluginExtends from "./theme.plugin";
 import { HacxyTheme } from "vitepress-theme-hacxy";
-// https://vitepress.dev/reference/site-config
+
 export default defineConfigWithTheme<HacxyTheme>({
   title: "Hacxy Blog",
   description: "A hacxy blog",
-  // extends: {},
+  extends: themePluginExtends,
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     logo: "logo.png",
     // 展示 2,3 级标题在目录中
     outline: {

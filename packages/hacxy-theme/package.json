@@ -1,26 +1,30 @@
 {
   "name": "vitepress-theme-hacxy",
   "version": "0.0.0",
-  "type": "module",
   "files": [
     "src"
   ],
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
   "types": "./src/index.ts",
-  "scripts": {},
+  "scripts": {
+    "dev": "tsup --watch"
+  },
   "keywords": [
     "vitepress-theme",
     "vitepress-theme-haxcy"
   ],
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.14.9",
+    "tsup": "^8.1.0",
     "typescript": "^5.3.3",
-    "vitepress": "^1.0.1"
+    "vitepress": "^1.2.3"
   },
   "dependencies": {
     "element-plus": "^2.7.4",
     "sass": "^1.72.0",
+    "vitepress-plugin-pagefind": "^0.4.3",
     "vue": "^3.4.21"
   }
 }

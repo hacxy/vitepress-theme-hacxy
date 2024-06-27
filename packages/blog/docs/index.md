@@ -1,6 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-layout: home
+layout: blog
 hero:
   name: "Hacxy Blog"
   tagline: 了解真相才能获得真正的自由

@@ -18,6 +18,5 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
     "types": ["element-plus/global"]
-  },
-  "include": ["src"]
+  }
 }

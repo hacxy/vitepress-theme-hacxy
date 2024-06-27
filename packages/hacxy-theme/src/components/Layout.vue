@@ -1,38 +1,47 @@
 <script setup lang="ts">
-// import { HaxyTheme } from "../types";
-import { useData } from "vitepress";
-import DefaultTheme from "vitepress/theme";
-import Footer from "./Footer.vue";
-import { useLayout } from "../hooks";
-import { nextTick, provide } from "vue";
-const { isDark, theme } = useData();
-const { layout } = useLayout();
+import DefaultTheme from 'vitepress/theme';
+import VPNav from 'vitepress/dist/client/theme-default/components/VPNav.vue';
+import Footer from './Footer.vue';
+import HeroAvatar from './HeroAvatar.vue';
+import HeroInfo from './HeroInfo.vue';
+import ArticlesList from './ArticlesList.vue';
 
-const enableTransitions = () =>
-  "startViewTransition" in document &&
-  window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+import { useLayoutType } from '../hooks';
+import { useTransition } from '../hooks/transition';
+const layoutType = useLayoutType();
 
-provide("toggle-appearance", async () => {
-  if (!enableTransitions()) {
-    isDark.value = !isDark.value;
-    return;
-  }
-
-  await (document as any).startViewTransition(async () => {
-    isDark.value = !isDark.value;
-    await nextTick();
-  }).ready;
-});
+// 过渡动画
+useTransition();
 </script>
 
 <template>
-  <DefaultTheme.Layout>
+  <template v-if="layoutType === 'blog'">
+    <div class="blog-page">
+      <VPNav />
+
+      <div class="blog-page-content">
+        <HeroAvatar />
+        <HeroInfo />
+        <ArticlesList />
+      </div>
+    </div>
+  </template>
+
+  <DefaultTheme.Layout v-else>
     <!-- footer -->
     <template #layout-bottom>
-      <Footer v-if="layout === 'home'" />
+      <Footer />
       <slot name="layout-bottom" />
     </template>
   </DefaultTheme.Layout>
 </template>
 
-<style scoped></style>
+<style scoped>
+.blog-page {
+  width: 100%;
+
+  .blog-page-content {
+    padding: 100px 0;
+  }
+}
+</style>

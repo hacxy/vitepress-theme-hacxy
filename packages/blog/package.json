@@ -17,9 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitepress": "^1.2.3",
-    "vitepress-plugin-search": "1.0.4-alpha.22"
-  },
-  "dependencies": {
+    "vite": "^5.3.1",
+    "pagefind": "^1.1.0",
     "vitepress-theme-hacxy": "workspace:*"
   }
 }

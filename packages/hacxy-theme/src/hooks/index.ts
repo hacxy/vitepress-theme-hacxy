@@ -1,16 +1,15 @@
-import { HacxyTheme } from "../types/index.ts";
-import { useData } from "vitepress";
+import type { HacxyTheme } from '../types/index.ts';
+import { useData } from 'vitepress';
 
-export const useLayout = () => {
+export const useLayoutType = () => {
   const { frontmatter } = useData();
-  return {
-    layout: frontmatter.value.layout as string,
-  };
+  return frontmatter.value.layout as 'blog' | 'home' | 'site';
 };
 
+// 备案信息
 export const useRecordFiling = () => {
   const { theme } = useData<HacxyTheme>();
   return {
-    recordFiling: theme.value.footer?.recordFiling,
+    recordFiling: theme.value.footer?.recordFiling
   };
 };
