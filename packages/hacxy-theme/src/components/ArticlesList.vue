@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useData } from 'vitepress';
 
-const { site, page } = useData();
-console.log(site);
-console.log(page);
+const { theme } = useData();
+console.log(theme);
 </script>
 
 <template></template>

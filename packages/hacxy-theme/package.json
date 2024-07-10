@@ -23,6 +23,9 @@
   },
   "dependencies": {
     "element-plus": "^2.7.4",
+    "fast-glob": "^3.3.2",
+    "globby": "^14.0.1",
+    "gray-matter": "^4.0.3",
     "sass": "^1.72.0",
     "vitepress-plugin-pagefind": "^0.4.3",
     "vue": "^3.4.21"

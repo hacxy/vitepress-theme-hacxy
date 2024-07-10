@@ -1,17 +1,17 @@
-import { type Theme } from "vitepress";
-import type { HacxyTheme } from "./types";
+import { type Theme } from 'vitepress';
+import type { HacxyTheme } from './types';
 
-import DefaultTheme from "vitepress/theme";
-import Layout from "./components/Layout.vue";
+import DefaultTheme from 'vitepress/theme';
+import Layout from './components/Layout.vue';
 
-import "element-plus/dist/index.css";
-import "./style/index.scss";
+import 'element-plus/dist/index.css';
+import './style/index.scss';
 
 const HacxyTheme: Theme = {
   extends: DefaultTheme,
   Layout: Layout,
-  enhanceApp({ app }) {},
+  enhanceApp({ app }) {}
 };
 
-export * from "./types";
+export * from './types';
 export default HacxyTheme;
