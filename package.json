@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "typed.js": "^2.1.0"
   }
 }

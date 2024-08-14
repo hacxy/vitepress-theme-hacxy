@@ -22,7 +22,6 @@
     "vitepress": "^1.2.3"
   },
   "dependencies": {
-    "element-plus": "^2.7.4",
     "fast-glob": "^3.3.2",
     "globby": "^14.0.1",
     "gray-matter": "^4.0.3",

@@ -1,20 +1,36 @@
 <script setup lang="ts">
 import { useData } from 'vitepress';
+import Typed from 'typed.js';
+import { onMounted, onUnmounted, ref } from 'vue';
 const { frontmatter } = useData();
 const heroInfo = frontmatter.value.hero;
+const taglineRef = ref(null);
+
+let typed: Typed;
+
+onMounted(() => {
+  typed = new Typed(taglineRef.value, {
+    strings: [heroInfo.tagline],
+    typeSpeed: 80
+  });
+});
+
+onUnmounted(() => {
+  typed.destroy();
+});
 </script>
 
 <template>
   <div class="hero-info">
     <h1 class="hero-info-title">{{ heroInfo.name }}</h1>
-    <div class="hero-info-tagline">{{ heroInfo.tagline }}</div>
+    <span class="hero-info-tagline" ref="taglineRef"></span>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .hero-info {
+  text-align: center;
   margin-top: 15px;
-  display: flex;
   align-items: center;
   flex-direction: column;
 

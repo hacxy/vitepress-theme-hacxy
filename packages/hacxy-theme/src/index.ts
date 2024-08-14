@@ -4,7 +4,6 @@ import type { HacxyTheme } from './types';
 import DefaultTheme from 'vitepress/theme';
 import Layout from './components/Layout.vue';
 
-import 'element-plus/dist/index.css';
 import './style/index.scss';
 
 const HacxyTheme: Theme = {
