@@ -1,27 +1,23 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme';
-import VPNav from 'vitepress/dist/client/theme-default/components/VPNav.vue';
-// import VPFooter from 'vitepress/dist/client/theme-default/components/VPFooter.vue';
 import Footer from './Footer.vue';
 import HeroAvatar from './HeroAvatar.vue';
 import HeroInfo from './HeroInfo.vue';
-import ArticlesList from './ArticlesList.vue';
 
-import { useLayoutType } from '../hooks';
 import { useTransition } from '../hooks/transition';
-const layoutType = useLayoutType();
-
 // 过渡动画
 useTransition();
 </script>
 
 <template>
-  <DefaultTheme.Layout>
-    <div class="blog-page-content">
-      <HeroAvatar />
+  <DefaultTheme.Layout class="blog-page">
+    <template #home-hero-info>
       <HeroInfo />
-      <ArticlesList />
-    </div>
+    </template>
+
+    <template #home-hero-image>
+      <HeroAvatar />
+    </template>
 
     <!-- footer -->
     <template #layout-bottom>
@@ -31,15 +27,52 @@ useTransition();
   </DefaultTheme.Layout>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .blog-page {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .blog-page-content {
-    height: 100%;
-    padding: 100px 0;
+  :deep(.VPHero) {
+    .container {
+      @media (min-width: 640px) {
+        .image {
+          margin: 0;
+          .image-container {
+            transform: none;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .image {
+        margin: 0 auto;
+        .image-container {
+          transform: none;
+          width: 100%;
+          height: 100%;
+        }
+        height: 130px;
+        width: 130px;
+        .image-bg {
+          display: flex;
+        }
+      }
+    }
+    @media (min-width: 960px) {
+      .container {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        .image {
+          .image-container {
+            transform: none;
+          }
+        }
+        .main {
+          .actions {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
   }
 }
 </style>

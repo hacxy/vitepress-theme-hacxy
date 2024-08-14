@@ -13,10 +13,10 @@ const heroImage = frontmatter.value.hero.image;
 
 <style lang="scss" scoped>
 .hero-avatar {
-  width: 100%;
+  width: 130px;
+
   .hero-avatar-image {
-    width: 130px;
-    margin: 0 auto;
+    width: 100%;
   }
 }
 </style>
