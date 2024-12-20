@@ -2,7 +2,7 @@
   <div name="post">
     <div
       v-for="(article, index) in posts"
-      :key="index"
+      :key="article.path"
       class="post-item"
       v-motion
       :initial="{
@@ -31,16 +31,7 @@
     </div>
   </div>
 
-  <div class="pagination">
-    <a
-      class="link"
-      :class="{ active: currentPage === i }"
-      v-for="i in totalPages"
-      :key="i"
-      @click="handleChangePage(i)"
-      >{{ i }}</a
-    >
-  </div>
+  <v-pagination :length="totalPages" v-model="currentPage" @update:model-value="handleChangePage"></v-pagination>
 </template>
 
 <script lang="ts" setup>

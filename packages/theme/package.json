@@ -28,8 +28,6 @@
   "devDependencies": {
     "@types/node": "^20.14.9",
     "dayjs": "^1.11.13",
-    "glob": "^11.0.0",
-    "tsup": "^8.1.0",
     "typescript": "^5.3.3",
     "vitepress": "^1.5.0"
   },
@@ -37,10 +35,9 @@
     "@asika32764/vue-animate": "^3.0.2",
     "@vueuse/core": "^12.0.0",
     "@vueuse/motion": "^2.2.6",
-    "fast-glob": "^3.3.2",
-    "globby": "^14.0.1",
     "gray-matter": "^4.0.3",
     "sass": "^1.72.0",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vuetify": "^3.7.6"
   }
 }
