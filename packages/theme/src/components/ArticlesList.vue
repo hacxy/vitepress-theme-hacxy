@@ -1,16 +1,33 @@
 <template>
-  <div v-for="(article, index) in posts" :key="index" class="post-list">
-    <div class="post-header">
-      <div class="post-title">
-        <a :href="withBase(article.path)"> {{ article?.title }}</a>
+  <div name="post">
+    <div
+      v-for="(article, index) in posts"
+      :key="index"
+      class="post-item"
+      v-motion
+      :initial="{
+        opacity: 0
+      }"
+      :enter="{
+        opacity: 1,
+        transition: {
+          duration: 500,
+          delay: index * 200
+        }
+      }"
+    >
+      <div class="post-header">
+        <div class="post-title">
+          <a :href="withBase(article.path)"> {{ article?.title }}</a>
+        </div>
       </div>
-    </div>
-    <p class="describe" v-html="article.description"></p>
-    <div class="post-info">
-      {{ article.date }}
-      <span v-for="item in article.tags"
-        ><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span
-      >
+      <p class="describe" v-html="article.description"></p>
+      <div class="post-info">
+        {{ article.date }}
+        <span v-for="item in article.tags"
+          ><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span
+        >
+      </div>
     </div>
   </div>
 
@@ -70,12 +87,12 @@ const handleChangePage = (i: number) => {
 </script>
 
 <style scoped>
-.post-list {
+.post-item {
   border-bottom: 1px dashed var(--vp-c-divider-light);
   padding: 14px 0 14px 0;
 }
 
-.post-list a,
+.post-item a,
 .pagination a {
   color: var(--vp-c-text-1);
   font-weight: 500;
@@ -133,7 +150,7 @@ const handleChangePage = (i: number) => {
 }
 
 @media screen and (max-width: 768px) {
-  .post-list {
+  .post-item {
     padding: 14px 0 14px 0;
   }
   .post-header {

@@ -8,9 +8,9 @@
     "build": "pnpm -r run build",
     "theme:dev": "pnpm -F vitepress-theme-hacxy run dev",
     "theme:build": "pnpm -F vitepress-theme-hacxy run build",
-    "blog:dev": "pnpm -F blog run dev",
-    "blog:build": "pnpm -F blog run build",
-    "blog:preview": "pnpm -F blog run preview"
+    "blog:dev": "pnpm -F demo run dev",
+    "blog:build": "pnpm -F demo run build",
+    "blog:preview": "pnpm -F demo run preview"
   },
   "devDependencies": {
     "rimraf": "^5.0.5"
