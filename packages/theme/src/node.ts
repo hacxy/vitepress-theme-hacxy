@@ -1,22 +1,22 @@
 import { DefaultTheme, RawConfigExports, SiteConfig } from 'vitepress';
-import { PagefindOption, SearchConfig, pagefindPlugin } from 'vitepress-plugin-pagefind';
-import { glob } from 'fast-glob';
+// import { PagefindOption, SearchConfig } from 'vitepress-plugin-pagefind';
+import { glob } from 'glob';
 import matter from 'gray-matter';
 import path from 'node:path';
 import fs from 'node:fs';
+import dayjs from 'dayjs';
+// type PagefindPluginConfig = SearchConfig & PagefindOption;
 
-type PagefindPluginConfig = SearchConfig & PagefindOption;
-
-interface ThemePlugin {
-  pagefindPlugin?: PagefindPluginConfig | false;
-}
+// interface ThemePlugin {
+//   pagefindPlugin?: PagefindPluginConfig | false;
+// }
 
 export function getPageRoute(filepath: string, srcDir: string) {
   const route = path.normalize(path.relative(srcDir, filepath)).replace(/\.md$/, '');
   return `/${route}`;
 }
 
-export function getTextSummary(text: string, count = 100) {
+export function getTextDescription(text: string, count = 100) {
   const finalText = text
     // 首个标题
     ?.replace(/^(#+)(.*)/m, '')
@@ -43,8 +43,7 @@ export function getTextSummary(text: string, count = 100) {
 
 export async function getArticles(vpConfig: SiteConfig) {
   const srcDir = vpConfig.srcDir.replace(vpConfig.root, '').replace(/^\//, '') || process.argv.slice(2)?.[1] || '.';
-  const files = glob.sync(`${srcDir}/**/*.md`, { ignore: ['node_modules'], absolute: true });
-
+  const files = glob.sync(`${srcDir}/**/*.md`, { ignore: ['node_modules/**/*'], absolute: true });
   const articleData = files.map((item) => {
     const fileContent = fs.readFileSync(item, { encoding: 'utf8' });
     const match = fileContent.match(/^(#+)\s+(.+)/m);
@@ -52,27 +51,30 @@ export async function getArticles(vpConfig: SiteConfig) {
 
     const content = matter(fileContent).content;
 
+    const frontmatter = matter(fileContent).data;
+    const date = dayjs(frontmatter.date).format('YYYY-MM-DD');
+
     return {
       title,
       path: getPageRoute(item, srcDir),
-      summary: getTextSummary(content)
+      description: getTextDescription(content),
+      ...frontmatter,
+      date
     };
   });
 
   return articleData;
 }
-
-export const loadThemePlugin = (themePlugin?: ThemePlugin): RawConfigExports<DefaultTheme.Config> => {
+export const defineThemeConfig = (): RawConfigExports<DefaultTheme.Config> => {
   return {
     vite: {
       plugins: [
         {
           name: 'vitepress-plugin-article',
-          config: async (cfg) => {
-            (cfg as any).vitepress.site.themeConfig.pagesData = await getArticles((cfg as any).vitepress);
+          config: async (cfg: any) => {
+            cfg.vitepress.site.themeConfig.pagesData = await getArticles(cfg.vitepress);
           }
-        },
-        themePlugin?.pagefindPlugin !== false && pagefindPlugin(themePlugin?.pagefindPlugin)
+        }
       ]
     }
   };

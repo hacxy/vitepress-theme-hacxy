@@ -16,9 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "^1.2.3",
-    "vite": "^5.3.1",
-    "pagefind": "^1.1.0",
+    "vitepress": "^1.5.0",
     "vitepress-theme-hacxy": "workspace:*"
   }
 }

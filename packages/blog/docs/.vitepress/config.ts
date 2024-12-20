@@ -1,34 +1,18 @@
-import { defineConfigWithTheme } from "vitepress";
-import themePluginExtends from "./theme.plugin";
-import { HacxyTheme } from "vitepress-theme-hacxy";
+import { defineConfig } from "vitepress";
+// import { defineThemeConfig } from "vitepress-theme-hacxy/config";
 
-export default defineConfigWithTheme<HacxyTheme>({
+export default defineConfig({
   title: "Hacxy Blog",
   description: "A hacxy blog",
-  extends: themePluginExtends,
+  // extends: defineThemeConfig(),
   themeConfig: {
-    logo: "logo.png",
+    // logo: "logo.png",
     // 展示 2,3 级标题在目录中
     outline: {
       level: [2, 4],
       label: "目录",
     },
-    sidebar: {
-      src: [
-        {
-          text: "服务器相关",
-          items: [
-            {
-              text: "",
-            },
-          ],
-        },
-        {
-          text: "开发工具相关",
-        },
-      ],
-    },
-
+    sidebar: {},
     socialLinks: [
       {
         icon: "github",
@@ -38,11 +22,11 @@ export default defineConfigWithTheme<HacxyTheme>({
 
     footer: {
       copyright:
-        'Copyright © 2023-Present <a href="https://github.com/hacxy">Hacxy</a>',
-      recordFiling: {
-        message: "鄂ICP备2021019656号",
-        link: "https://beian.miit.gov.cn",
-      },
+        'MIT Licensed | Copyright © 2023-Present <a href="https://github.com/hacxy">Hacxy</a>',
+      // recordFiling: {
+      //   message: "鄂ICP备2021019656号",
+      //   link: "https://beian.miit.gov.cn",
+      // },
     },
   },
 });

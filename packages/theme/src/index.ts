@@ -9,7 +9,9 @@ import './style/index.scss';
 const HacxyTheme: Theme = {
   extends: DefaultTheme,
   Layout: Layout,
-  enhanceApp({ app }) {}
+  enhanceApp({ app }) {
+    // app.component('ArticlesList', ArticlesList);
+  }
 };
 
 export * from './types';
