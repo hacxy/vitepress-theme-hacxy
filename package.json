@@ -1,21 +1,18 @@
 {
-  "name": "hacxy-blog-root",
+  "name": "root",
   "version": "0.0.0",
   "private": true,
   "author": "Hacxy",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm -r run build",
-    "theme:dev": "pnpm -F vitepress-theme-hacxy run dev",
-    "theme:build": "pnpm -F vitepress-theme-hacxy run build",
-    "blog:dev": "pnpm -F demo run dev",
-    "blog:build": "pnpm -F demo run build",
-    "blog:preview": "pnpm -F demo run preview"
+    "theme:release": "pnpm -F vitepress-theme-mild run release",
+    "demo:dev": "pnpm -F demo run dev",
+    "demo:build": "pnpm -F demo run build",
+    "demo:preview": "pnpm -F demo run preview"
   },
   "devDependencies": {
+    "@hacxy/eslint-config": "^0.0.6",
+    "eslint": "^9.17.0",
     "rimraf": "^5.0.5"
-  },
-  "dependencies": {
-    "typed.js": "^2.1.0"
   }
 }

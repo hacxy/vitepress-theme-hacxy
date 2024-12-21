@@ -1,7 +1,7 @@
 import { useData } from 'vitepress';
 import { nextTick, provide } from 'vue';
 
-export const useTransition = () => {
+export function useTransition() {
   const { isDark } = useData();
   const enableTransitions = () =>
     'startViewTransition' in document && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
@@ -17,4 +17,4 @@ export const useTransition = () => {
       await nextTick();
     }).ready;
   });
-};
+}

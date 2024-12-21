@@ -1,44 +1,8 @@
-<template>
-  <div name="post">
-    <div
-      v-for="(article, index) in posts"
-      :key="article.path"
-      class="post-item"
-      v-motion
-      :initial="{
-        opacity: 0
-      }"
-      :enter="{
-        opacity: 1,
-        transition: {
-          duration: 500,
-          delay: index * 200
-        }
-      }"
-    >
-      <div class="post-header">
-        <div class="post-title">
-          <a :href="withBase(article.path)"> {{ article?.title }}</a>
-        </div>
-      </div>
-      <p class="describe" v-html="article.description"></p>
-      <div class="post-info">
-        {{ article.date }}
-        <span v-for="item in article.tags"
-          ><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span
-        >
-      </div>
-    </div>
-  </div>
-
-  <v-pagination :length="totalPages" v-model="currentPage" @update:model-value="handleChangePage"></v-pagination>
-</template>
-
 <script lang="ts" setup>
-import { withBase } from 'vitepress';
 import { useUrlSearchParams } from '@vueuse/core';
-import { data } from '../store/articles.data.js';
+import { withBase } from 'vitepress';
 import { computed, ref } from 'vue';
+import { data } from '../store/articles.data.js';
 
 const params = useUrlSearchParams();
 const currentPage = ref(Number(params.pageNum) || 1);
@@ -71,13 +35,47 @@ const posts = computed(() => {
   return paginate(data, pageSize.value, currentPage.value);
 });
 
-const handleChangePage = (i: number) => {
+function handleChangePage(i: number) {
   currentPage.value = i;
   params.pageNum = String(i);
-};
+}
 </script>
 
-<style scoped>
+<template>
+  <div name="post">
+    <div
+      v-for="(article, index) in posts"
+      :key="article.path"
+      v-motion
+      class="post-item"
+      :initial="{
+        opacity: 0,
+      }"
+      :enter="{
+        opacity: 1,
+        transition: {
+          duration: 500,
+          delay: index * 200,
+        },
+      }"
+    >
+      <div class="post-header">
+        <div class="post-title">
+          <a :href="withBase(article.path)"> {{ article?.title }}</a>
+        </div>
+      </div>
+      <p class="describe" v-html="article.description" />
+      <div class="post-info">
+        {{ article.date }}
+        <span v-for="item in article.tags" :key="item"><a :href="withBase(`/pages/tags.html?tag=${item}`)"> {{ item }}</a></span>
+      </div>
+    </div>
+  </div>
+
+  <v-pagination v-model="currentPage" :length="totalPages" @update:model-value="handleChangePage" />
+</template>
+
+<style lang="scss" scoped>
 .post-item {
   border-bottom: 1px dashed var(--vp-c-divider-light);
   padding: 14px 0 14px 0;

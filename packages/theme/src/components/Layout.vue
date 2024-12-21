@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import DefaultTheme from 'vitepress/theme';
 // import Footer from './Footer.vue';
 // import HeroAvatar from './HeroAvatar.vue';
 // import HeroInfo from './HeroInfo.vue';
-import { useData } from 'vitepress';
+import DefaultTheme from 'vitepress/theme';
 import { useTransition } from '../hooks/transition';
 import ArticlesList from './ArticlesList.vue';
+
 const { Layout } = DefaultTheme;
 // 过渡动画
 useTransition();
 </script>
 
 <template>
-  <Layout class="blog-page">
+  <layout class="blog-page">
     <template #home-hero-info>
-      <ArticlesList />
+      <articles-list />
     </template>
-  </Layout>
+  </layout>
 </template>
 
 <style lang="scss" scoped>

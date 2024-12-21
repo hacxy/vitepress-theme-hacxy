@@ -15,7 +15,7 @@ function getTextDescription(text: string, count = 100) {
     // 除去加粗
     ?.replace(/\*\*(.*?)\*\*/g, '$1')
     ?.split('\n')
-    ?.filter((v) => !!v)
+    ?.filter(v => !!v)
     ?.join('\n')
     ?.replace(/>(.*)/, '')
     ?.replace(/</g, '&lt;')
@@ -31,8 +31,8 @@ export default createContentLoader('./**/*.md', {
   render: true,
   excerpt: true,
   transform(rawData) {
-    const finalRawData = rawData.filter((item) => !['/', '/README.html'].includes(item.url));
-    const data = finalRawData.map((item) => {
+    const finalRawData = rawData.filter(item => !['/', '/README.html'].includes(item.url));
+    const data = finalRawData.map(item => {
       const content = matter(item.src || '').content;
       const match = content.match(/^(#+)\s+(.+)/m);
       const title = match?.[2] || '';

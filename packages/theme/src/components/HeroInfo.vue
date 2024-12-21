@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useData } from 'vitepress';
 import Typed from 'typed.js';
+import { useData } from 'vitepress';
 import { onMounted, onUnmounted, ref } from 'vue';
+
 const { frontmatter } = useData();
 const heroInfo = frontmatter.value.hero;
 const taglineRef = ref(null);
@@ -22,8 +23,10 @@ onUnmounted(() => {
 
 <template>
   <div class="hero-info">
-    <h1 class="hero-info-title">{{ heroInfo.name }}</h1>
-    <span class="hero-info-tagline" ref="taglineRef"></span>
+    <h1 class="hero-info-title">
+      {{ heroInfo.name }}
+    </h1>
+    <span ref="taglineRef" class="hero-info-tagline" />
   </div>
 </template>
 
