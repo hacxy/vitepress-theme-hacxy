@@ -17,6 +17,9 @@ export function defineThemeConfig(config: ThemeConfig = {}): RawConfigExports<De
       codeTransformers
     },
     vite: {
+      build: {
+        chunkSizeWarningLimit: 2000
+      },
       css: {
         preprocessorOptions: {
           scss: {
