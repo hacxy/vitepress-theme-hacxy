@@ -1,43 +1,43 @@
 {
-  "name": "vitepress-theme-hacxy",
-  "version": "0.0.0",
+  "name": "vitepress-theme-mild",
+  "type": "module",
+  "version": "0.0.1-beta.1",
+  "license": "MIT",
+  "keywords": [
+    "vitepress",
+    "vitepress-theme"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts"
+    }
+  },
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
   "files": [
     "src"
   ],
-  "module": "./src/index.ts",
-  "types": "./src/index.ts",
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./src/index.ts",
-      "types": "./src/index.ts"
-    },
-    "./config": {
-      "import": "./dist/node.js",
-      "types": "./dist/node.d.ts"
-    }
-  },
   "scripts": {
-    "dev": "tsup"
-  },
-  "keywords": [
-    "vitepress-theme",
-    "vitepress-theme-haxcy"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^20.14.9",
-    "dayjs": "^1.11.13",
-    "typescript": "^5.3.3",
-    "vitepress": "^1.5.0"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "bumpp && pnpm publish"
   },
   "dependencies": {
-    "@asika32764/vue-animate": "^3.0.2",
     "@vueuse/core": "^12.0.0",
     "@vueuse/motion": "^2.2.6",
     "gray-matter": "^4.0.3",
     "sass": "^1.72.0",
+    "typed.js": "^2.1.0",
     "vue": "^3.4.21",
     "vuetify": "^3.7.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "bumpp": "^9.9.1",
+    "dayjs": "^1.11.13",
+    "typescript": "^5.3.3",
+    "unbuild": "^3.0.1",
+    "vitepress": "^1.5.0"
   }
 }
