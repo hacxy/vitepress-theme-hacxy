@@ -57,8 +57,6 @@ AUTO_UPGRADE='1'
 ```sh
 acme.sh --issue --accountconf ~/.acme.sh/account.conf --server letsencrypt --dns dns_dp -d loclink.cn -d *.loclink.cn -k ec-384 --debug
 
-
-
 ```
 
 ::: tip

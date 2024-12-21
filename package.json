@@ -1,18 +1,44 @@
 {
   "name": "root",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
   "author": "Hacxy",
   "license": "MIT",
   "scripts": {
-    "theme:release": "pnpm -F vitepress-theme-mild run release",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "pnpm -F vitepress-theme-mild run dev",
+    "build": "pnpm -F vitepress-theme-mild run build",
+    "release": "pnpm -F vitepress-theme-mild run release",
     "demo:dev": "pnpm -F demo run dev",
     "demo:build": "pnpm -F demo run build",
-    "demo:preview": "pnpm -F demo run preview"
+    "demo:preview": "pnpm -F demo run preview",
+    "prepare": "simple-git-hooks",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "@hacxy/eslint-config": "^0.0.6",
+    "commitizen": "^4.3.1",
+    "cz-git": "^1.11.0",
     "eslint": "^9.17.0",
-    "rimraf": "^5.0.5"
+    "lint-staged": "^15.2.11",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.3.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "node scripts/git-hooks/commit-msg.mjs"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "useEmoji": false
+    }
   }
 }
