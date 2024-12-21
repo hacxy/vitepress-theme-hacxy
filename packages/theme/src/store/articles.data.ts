@@ -49,5 +49,12 @@ export default createContentLoader('./**/*.md', {
   }
 });
 
-declare const data: any;
+export interface ArticlesData {
+  title: string
+  path: string
+  description: string
+  date: string
+  tags: string[]
+}
+declare const data: ArticlesData[];
 export { data };

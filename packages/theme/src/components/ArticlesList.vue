@@ -1,14 +1,16 @@
 <script lang="ts" setup>
+import type { ArticlesData } from '../store/articles.data.js';
 import { useUrlSearchParams } from '@vueuse/core';
-import { withBase } from 'vitepress';
+import { useRouter, withBase } from 'vitepress';
 import { computed, ref } from 'vue';
 import { data } from '../store/articles.data.js';
 
+const router = useRouter();
 const params = useUrlSearchParams();
 const currentPage = ref(Number(params.pageNum) || 1);
 const pageSize = ref(4);
 
-function paginate(data: any[], pageSize: number, currentPage: number) {
+function paginate(data: ArticlesData[], pageSize: number, currentPage: number) {
   // 参数校验，如果数据不是数组或者没有数据，直接返回空数组
   if (!Array.isArray(data) || data?.length === 0) {
     return [];
@@ -39,10 +41,13 @@ function handleChangePage(i: number) {
   currentPage.value = i;
   params.pageNum = String(i);
 }
+function handleClick(path: string) {
+  router.go(withBase(path));
+}
 </script>
 
 <template>
-  <div name="post">
+  <div class="post">
     <div
       v-for="(article, index) in posts"
       :key="article.path"
@@ -58,10 +63,11 @@ function handleChangePage(i: number) {
           delay: index * 200,
         },
       }"
+      @click="handleClick(article.path)"
     >
       <div class="post-header">
         <div class="post-title">
-          <a :href="withBase(article.path)"> {{ article?.title }}</a>
+          <a> {{ article?.title }}</a>
         </div>
       </div>
       <p class="describe" v-html="article.description" />
@@ -76,9 +82,20 @@ function handleChangePage(i: number) {
 </template>
 
 <style lang="scss" scoped>
+.post {
+  min-height: calc(100vh - 400px);
+}
+
 .post-item {
   border-bottom: 1px dashed var(--vp-c-divider-light);
-  padding: 14px 0 14px 0;
+  padding: 14px 14px;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.post-item:hover {
+  box-shadow: 0 0 8px #0000003a;
 }
 
 .post-item a,
@@ -109,11 +126,6 @@ function handleChangePage(i: number) {
   color: var(--vp-c-text-2);
   margin: 10px 0;
   line-height: 1.5rem;
-}
-.pagination {
-  margin-top: 16px;
-  display: flex;
-  justify-content: center;
 }
 .link {
   display: inline-block;

@@ -3,6 +3,10 @@ import type { DefaultTheme, RawConfigExports } from 'vitepress';
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
 export interface ThemeConfig {
+  /**
+   * Typescript Twoslash
+   * @default true
+   */
   twoslash?: false | VitePressPluginTwoslashOptions
 }
 
