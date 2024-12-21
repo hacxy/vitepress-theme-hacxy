@@ -18,12 +18,12 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5
 
-  packages/blog:
+  packages/demo:
     devDependencies:
       vitepress:
         specifier: ^1.5.0
         version: 1.5.0(@algolia/client-search@5.18.0)(@types/node@20.14.9)(async-validator@4.2.5)(postcss@8.4.49)(sass@1.72.0)(search-insights@2.13.0)(typescript@5.4.3)
-      vitepress-theme-hacxy:
+      vitepress-theme-mild:
         specifier: workspace:*
         version: link:../theme
 
@@ -35,6 +35,9 @@ importers:
       '@vueuse/motion':
         specifier: ^2.2.6
         version: 2.2.6(rollup@4.28.1)(vue@3.5.13(typescript@5.4.3))
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -57,9 +60,6 @@ importers:
       bumpp:
         specifier: ^9.9.1
         version: 9.9.1
-      dayjs:
-        specifier: ^1.11.13
-        version: 1.11.13
       typescript:
         specifier: ^5.3.3
         version: 5.4.3
