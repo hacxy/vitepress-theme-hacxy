@@ -36,6 +36,7 @@ onUnmounted(() => {
   margin-top: 15px;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 15px;
 
   .hero-info-title {
     font-size: 28px;

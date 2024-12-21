@@ -78,10 +78,17 @@ function handleClick(path: string) {
     </div>
   </div>
 
-  <v-pagination v-model="currentPage" :length="totalPages" @update:model-value="handleChangePage" />
+  <v-pagination
+    v-model="currentPage"
+    :length="totalPages"
+    @update:model-value="handleChangePage"
+  />
 </template>
 
 <style lang="scss" scoped>
+:deep(.v-pagination) {
+  color: var(--vp-c-text-1);
+}
 .post {
   min-height: calc(100vh - 400px);
 }

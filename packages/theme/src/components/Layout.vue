@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// import Footer from './Footer.vue';
-// import HeroAvatar from './HeroAvatar.vue';
-// import HeroInfo from './HeroInfo.vue';
 import DefaultTheme from 'vitepress/theme';
 import { useTransition } from '../hooks/transition';
 import ArticlesList from './ArticlesList.vue';
@@ -22,7 +19,7 @@ useTransition();
 <style lang="scss" scoped>
 .blog-page {
   :deep(.VPHero) {
-    padding: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 10px) 64px 0px;
+    // padding: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 10px) 64px 0px;
     display: flex;
     .container {
       text-align: left;

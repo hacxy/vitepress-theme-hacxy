@@ -5,13 +5,21 @@ import DefaultTheme from 'vitepress/theme';
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
 import Layout from './src/components/Layout.vue';
 import 'vuetify/styles';
 import '@shikijs/vitepress-twoslash/style.css';
 
 const vuetify = createVuetify({
   components,
-  directives
+  directives,
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
+    },
+  },
 });
 
 const MildTheme: Theme = {
